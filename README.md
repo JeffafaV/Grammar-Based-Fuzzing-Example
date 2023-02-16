@@ -34,8 +34,9 @@ B ::= "B" bool <br/>
 C ::= "C" bool <br/>
 
 Mutating the grammar of B to (B::="B" bool) we will find that we will return true even though the input 
-is invalid. This is due to a missing valid = false after the first if statement for the B section. So 
-it is possible to enter a non-int after the "B" and the program will return true which is a bug.
+is invalid. This is due to a missing else that should make valid equal to false after the first if statement 
+for the B section. So it is possible to enter a non-int after the "B" and the program will return true which 
+is a bug.
 
 Second Mutated Grammar:
 
@@ -58,4 +59,4 @@ C ::= "C" <br/>
 
 Mutating the grammar of C to (C::="C") we will find that the program will actually terminate with an error.
 This is due to the program trying to get the second element of the array even though the array only has one 
-element. Including ind < arr.length in the if condition of the C branch would fix this error.
+element. Including the condition ind < arr.length in the if statement of the C branch would fix this error.
